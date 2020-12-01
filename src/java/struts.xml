@@ -1,0 +1,174 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="">
+            <result>index.jsp</result>
+        </action>
+        <action name="LoginAction" class="huonglh.actions.LoginAction">
+            <result name="admin">admin.jsp</result>
+            <result name="actor">actor.jsp</result>
+            <result name="director">director.jsp</result>
+            <result name="invalid">invalid.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
+        <action name="LogoutAction" class="huonglh.actions.LogoutAction">
+            <result name="success">index.jsp</result>
+        </action>
+        <action name="DeleteLoginAction" class="huonglh.actions.DeleteLoginAction">
+            <result name="success">${link}</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="SearchActorAction" class="huonglh.actions.SearchActorAction">
+            <result name="success">viewActor.jsp</result>
+        </action>
+        <action name="DeleteActorAction" class="huonglh.actions.DeleteActorAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchActorAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="EditActorAction" class="huonglh.actions.EditActorAction">
+            <result name="update">updateActor.jsp</result>
+        </action>
+        <action name="UpdateActorAction" class="huonglh.actions.UpdateActorAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchActorAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+            <result name="input">updateActor.jsp</result>
+        </action>
+        <action name="CreateActorAction" class="huonglh.actions.CreateActorAction">
+            <exception-mapping exception="java.sql.SQLException" result="input"></exception-mapping>
+            <result name="success">admin.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="input">createActor.jsp</result>
+        </action>
+        <action name="SearchDirectorAction" class="huonglh.actions.SearchDirectorAction">
+            <result name="success">viewDirector.jsp</result>
+        </action>
+        <action name="CreateDirectorAction" class="huonglh.actions.CreateDirectorAction">
+            <exception-mapping exception="java.sql.SQLException" result="input"></exception-mapping>
+            <result name="success">admin.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="input">createDirector.jsp</result>
+        </action>
+        <action name="EditDirectorAction" class="huonglh.actions.EditDirectorAction">
+            <result name="update">updateDirector.jsp</result>
+        </action>
+        <action name="UpdateDirectorAction" class="huonglh.actions.UpdateDirectorAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchDirectorAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+            <result name="input">updateDirector.jsp</result>
+        </action>
+        <action name="DeleteDirectorAction" class="huonglh.actions.DeleteDirectorAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchDirectorAction</param>
+                <param name="searchValue">${lastSearchValue}</param>=
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="SearchSceneAction" class="huonglh.actions.SearchSceneAction">
+            <result name="success">viewScene.jsp</result>
+        </action>
+        <action name="CreateSceneAction" class="huonglh.actions.CreateSceneAction">
+            <exception-mapping exception="java.sql.SQLException" result="input"></exception-mapping>
+            <result name ="success">admin.jsp</result>
+            <result name ="error">error.jsp</result>
+            <result name ="input">createScene.jsp</result>
+        </action>
+        <action name="DeleteSceneAction" class="huonglh.actions.DeleteSceneAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchSceneAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="EditSceneAction" class="huonglh.actions.EditSceneAction">
+            <result name="update">updateScene.jsp</result>
+        </action>
+        <action name="UpdateSceneAction" class="huonglh.actions.UpdateSceneAction">
+            <exception-mapping exception="java.sql.SQLException" result="input"></exception-mapping>
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchSceneAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+            <result name="input">updateScene.jsp</result>
+        </action>
+        <action name="SearchPropAction" class="huonglh.actions.SearchPropAction">
+            <result name="success">viewProp.jsp</result>
+        </action>
+        <action name="CreatePropAction" class="huonglh.actions.CreatePropAction">
+            <exception-mapping exception="java.sql.SQLException" result="input"></exception-mapping>
+            <result name="success">admin.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="input">createProp.jsp</result>
+        </action>
+        <action name="EditPropAction" class="huonglh.actions.EditPropAction">
+            <result name="update">updateProp.jsp</result>
+        </action>
+        <action name="UpdatePropAction" class="huonglh.actions.UpdatePropAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchPropAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+            <result name="input">updateProp.jsp</result>
+        </action>
+        <action name="DeletePropAction" class="huonglh.actions.DeletePropAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchPropAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="GoShoppingPropAction" class="huonglh.actions.GoShoppingPropAction">
+            <result name="view">goShoppingProp.jsp</result>
+        </action>
+        <action name="GoShoppingActorAction" class="huonglh.actions.GoShoppingActorAction">
+            <result name="view">goShoppingActor.jsp</result>
+        </action>
+        <action name="AddPropCartAction" class="huonglh.actions.AddPropCartAction">
+            <result name="success">goShoppingProp.jsp</result>
+            <result name="input">goShoppingProp.jsp</result>
+        </action>
+        <action name="AddActorCartAction" class="huonglh.actions.AddActorCartAction">
+            <result name="success">goShoppingActor.jsp</result>
+            <result name="input">goShoppingActor.jsp</result>
+        </action>
+        <action name="InsertPropCartAction" class="huonglh.actions.InsertPropCartAction">
+            <result name="success">goShoppingProp.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="InsertActorCartAction" class="huonglh.actions.InsertActorCartAction">
+            <result name="success">goShoppingActor.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="ReportPropSceneAction" class="huonglh.actions.ReportPropSceneAction">
+            <result name="view">viewReport.jsp</result>
+        </action>
+        <action name="ViewScheduleAction" class="huonglh.actions.ViewScheduleAction">
+            <result name="view">viewSchedule.jsp</result>
+        </action>
+        <action name="ViewFilmedSceneAction" class="huonglh.actions.ViewFilmedSceneAction">
+            <result name="view">viewFilmedScene.jsp</result>
+        </action>
+        <action name="DownloadFileAction" class="huonglh.actions.DownloadFileAction">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+    </package>
+</struts>
